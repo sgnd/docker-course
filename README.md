@@ -418,11 +418,6 @@ To update the configuration of a node, you can use the `docker node update` comm
 
 This command will update the specified node with the specified options. The options can include changes to the node's availability, labels, and other settings.
 
-Conclusion
-----------
-
-In this tutorial, you learned the basics of Docker and Docker Swarm. You learned how to install and use Docker, how to manage Docker containers and images, how to connect containers to networks, and how to deploy and manage applications with Docker Swarm. With this knowledge, you should be able to start using Docker and Docker Swarm to develop and deploy your own distributed applications.
-
 ## Working with Swarm services
 
 To create and manage Swarm services, you can use the following commands:
