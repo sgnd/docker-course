@@ -345,6 +345,7 @@ This command will start the specified service, but it will not start any of the 
 
 ## Introduction to Docker Swarm
 
+### What is Docker Swarm?
 Docker Swarm is a tool for orchestrating a cluster of Docker nodes. It allows you to create and manage a group of Docker servers as a single, logical entity, making it easier to deploy and manage distributed applications.
 
 ### Initializing a Swarm
@@ -354,62 +355,6 @@ To create a new Swarm, you can use the `docker swarm init` command. For example:
 `docker swarm init`
 
 This command will initialize a new Swarm and make the current node the leader.
-
-### Adding a Node to a Swarm
-
-To add a new node to an existing Swarm, you can use the `docker swarm join` command. For example:
-
-`docker swarm join --token <token> <swarm_manager_ip>:<swarm_manager_port> `
-
-This command will add the current node to the specified Swarm as a worker.
-
-### Removing a Node from a Swarm
-
-To remove a node from a Swarm, you can use the `docker swarm leave` command. For example:
-
-`docker swarm leave`
-
-This command will remove the current node from the Swarm. If the node is a manager, it will also demote the node to a worker before removing it.
-
-### Promoting a Worker Node to a Manager
-
-To promote a worker node to a manager, you can use the `docker node promote` command. For example:
-
-`docker node promote <node_id> `
-
-This command will promote the specified worker node to a manager.
-
-### Demoting a Manager Node to a Worker
-
-To demote a manager node to a worker, you can use the `docker node demote` command. For example:
-
-`docker node demote <node_id> `
-
-This command will demote the specified manager node to a worker.
-
-### Inspecting a Node
-
-To view detailed information about a node, you can use the `docker node inspect` command. For example:
-
-`docker node inspect <node_id> `
-
-This command will display detailed information about the specified node, including its status, role, and configuration.
-
-### Listing All Nodes
-
-To list all the nodes in a Swarm, you can use the `docker node ls` command. For example:
-
-`docker node ls`
-
-This command will list all the nodes in the Swarm, along with their ID, status, and role.
-
-### Updating the Configuration of a Node
-
-To update the configuration of a node, you can use the `docker node update` command. For example:
-
-`docker node update <node_id> <options> `
-
-This command will update the specified node with the specified options. The options can include changes to the node's availability, labels, and other settings.
 
 ## Working with Swarm services
 
