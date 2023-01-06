@@ -3,7 +3,7 @@
 This tutorial is designed to help beginners get started with Docker and Docker Swarm. It covers the basics of installing and using Docker, as well as more advanced topics such as container networking and deploying applications with Docker Swarm.
 
 ## Table of Contents:
-1. Introduction to Docker
+1. [Introduction to Docker](##introduction-to-docker)
    - What is Docker?
    - Installing Docker
    - Basic Docker concepts
