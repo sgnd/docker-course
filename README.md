@@ -3,11 +3,11 @@
 This tutorial is designed to help beginners get started with Docker and Docker Swarm. It covers the basics of installing and using Docker, as well as more advanced topics such as container networking and deploying applications with Docker Swarm.
 
 ## Table of Contents:
-1. [Introduction to Docker](#introduction-to-docker)
+1. Introduction to Docker
    - What is Docker?
    - Installing Docker
    - Basic Docker concepts
-2. [Managing Docker containers](#managing-docker-containers)
+2. Managing Docker containers
    - Running a container
    - Attaching to a running container
    - Copying files from a container
@@ -20,15 +20,15 @@ This tutorial is designed to help beginners get started with Docker and Docker S
    - Viewing port mappings
    - Restarting a container
    - Viewing processes in a container
-3. [Managing Docker images](#managing-docker-images)
+3. Managing Docker images
    - Listing available images
    - Removing an image
    - Viewing the history of an image
    - Removing dangling images
    - Tagging an image
-4. [Executing commands in a running Docker container](#executing-commands-in-a-running-docker-container)
+4. Executing commands in a running Docker container
    - Using docker exec
-5. [Container networking](#container-networking)
+5. Container networking
    - Listing networks
    - Inspecting a network
    - Creating a new network
@@ -38,15 +38,15 @@ This tutorial is designed to help beginners get started with Docker and Docker S
    - Creating a network with a custom subnet
    - Creating a network with a custom IP range
    - Forcefully disconnecting a container from a network
-6. [Working with Docker Compose](#working-with-docker-compose)
+6. Working with Docker Compose
    - Running a command in a new container
    - Building images before starting containers
    - Recreating all containers
    - Starting containers without starting linked services
-7. [Introduction to Docker Swarm](#introduction-to-docker-swarm)
+7. Introduction to Docker Swarm
    - What is Docker Swarm?
    - Initializing and managing a Swarm
-8. [Working with Swarm services](#working-with-swarm-services)
+8. Working with Swarm services
    - Creating a new service
    - Inspecting a service
    - Viewing logs for a service
@@ -56,13 +56,13 @@ This tutorial is designed to help beginners get started with Docker and Docker S
    - Rolling back a service
    - Scaling a service
    - Updating the configuration of a service
-9. [Working with Swarm nodes](#working-with-swarm-nodes)
+9. Working with Swarm nodes
    - Demoting a manager node
    - Inspecting a node
    - Listing all nodes
    - Promoting a worker node
    - Updating the configuration of a node
-10. [Conclusion](#conclusion)
+10. Conclusion
 
 ## Introduction to Docker
 
