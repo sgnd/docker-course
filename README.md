@@ -432,39 +432,49 @@ To update the configuration of a service, you can use the `docker service update
 
 This command will update the specified service with the specified options. You can use various options to customize the service's behavior, such as setting environment variables, mapping ports, and mounting volumes.
 
-## Working with Swarm nodes
+## Working with Swarm Nodes
 
-### Removing a Node from a Swarm
+To work with Swarm nodes, you can use the following commands:
 
-To remove a node from a Swarm, you can use the `docker node rm` command. For example:
+### Demoting a Manager Node
 
-`docker node rm <node_id>`
+To demote a manager node to a worker node, you can use the `docker node demote` command. For example:
 
-This command will remove the specified node from the Swarm. If the node is a manager, it will be demoted to a worker before being removed. If the node is running tasks, those tasks will be rescheduled on other nodes before the node is removed.
+`docker node demote <node_id> `
 
-### Changing the Availability of a Node
+This command will demote the specified manager node to a worker node. The node will no longer be able to accept new tasks or make scheduling decisions.
 
-To change the availability of a node, you can use the `docker node update` command with the `--availability` flag. For example:
+### Inspecting a Node
 
-`docker node update --availability <availability> <node_id> `
+To view detailed information about a node, you can use the `docker node inspect` command. For example:
 
-This command will set the availability of the specified node to the specified value. The possible values for `availability` are `active`, `pause`, and `drain`. An `active` node is a normal node that can run tasks. A `pause` node is a node that can't run new tasks, but existing tasks will continue to run. A `drain` node is a node that will stop running new tasks, and existing tasks will be rescheduled on other nodes.
+`docker node inspect <node_id> `
 
-### Adding Labels to a Node
+This command will display detailed information about the specified node, including its configuration, state, and network settings.
 
-To add labels to a node, you can use the `docker node update` command with the `--label-add` flag. For example:
+### Listing All Nodes
 
-`docker node update --label-add <label_name>=<label_value> <node_id> `
+To list all the nodes in a Swarm, you can use the `docker node ls` command. For example:
 
-This command will add the specified label to the specified node. Labels are key-value pairs that can be used to organize and filter nodes.
+`docker node ls`
 
-### Removing Labels from a Node
+This command will list all the nodes in the Swarm, along with their ID, hostname, and status.
 
-To remove labels from a node, you can use the `docker node update` command with the `--label-rm` flag. For example:
+### Promoting a Worker Node
 
-`docker node update --label-rm <label_name> <node_id> `
+To promote a worker node to a manager node, you can use the `docker node promote` command. For example:
 
-This command will remove the specified label from the specified node.
+`docker node promote <node_id> `
+
+This command will promote the specified worker node to a manager node. The node will be able to accept new tasks and make scheduling decisions.
+
+### Updating the Configuration of a Node
+
+To update the configuration of a node, you can use the `docker node update` command. For example:
+
+`docker node update <node_id> <options> `
+
+This command will update the specified node with the specified options. You can use various options to customize the node's behavior, such as setting labels and role.
 
 ## Conclusion
 In this tutorial, you learned the basics of Docker and Docker Swarm, and how to use them to create and manage a cluster of Docker nodes. You learned how to run and manage Docker containers, how to work with Docker images, how to use container networking, and how to deploy and manage applications with Docker Swarm.
@@ -473,4 +483,4 @@ I hope this tutorial has been helpful in getting you started with Docker and Doc
 
 ## References
 - Docker documentation
-- Personal experience
+- Personal experiences
