@@ -358,7 +358,7 @@ This command will initialize a new Swarm and make the current node the leader.
 
 ## Working with Swarm services
 
-To create and manage Swarm services, you can use the following commands:
+To work with Swarm services, you can use the following commands:
 
 ### Creating a New Service
 
@@ -366,23 +366,23 @@ To create a new service in a Swarm, you can use the `docker service create` comm
 
 `docker service create <image_name>`
 
-This command will create a new service in the Swarm, using the specified image.
+This command will create a new service in the Swarm using the specified image. You can use various options to customize the service's behavior, such as setting environment variables, mapping ports, and mounting volumes.
 
 ### Inspecting a Service
 
 To view detailed information about a service, you can use the `docker service inspect` command. For example:
 
-`docker service inspect <service_name> `
+`docker service inspect <service_id> `
 
-This command will display detailed information about the specified service, including its configuration, task state, and network settings.
+This command will display detailed information about the specified service, including its configuration, state, and network settings.
 
 ### Viewing Logs for a Service
 
-To view the logs for a service, you can use the `docker service logs` command. For example:
+To view the logs of a service, you can use the `docker service logs` command. For example:
 
-`docker service logs <service_name> `
+`docker service logs <service_id> `
 
-This command will display the logs for the specified service. By default, it will show the logs for the most recent run of the service. You can use the `--follow` flag to keep the logs open and display new log entries as they are written.
+This command will display the logs of the specified service. By default, it will show the logs for the most recent tasks of the service. You can use the `--follow` flag to keep the logs open and display new log entries as they are written.
 
 ### Listing All Services
 
@@ -390,7 +390,7 @@ To list all the services in a Swarm, you can use the `docker service ls` command
 
 `docker service ls`
 
-This command will list all the services in the Swarm, along with their ID, name, and mode.
+This command will list all the services in the Swarm, along with their ID, name, and status.
 
 ### Listing Tasks of a Service
 
@@ -404,33 +404,33 @@ This command will list the tasks of the specified service, along with their ID, 
 
 To remove a service from the Swarm, you can use the `docker service rm` command. For example:
 
-`docker service rm <service_name>`
+`docker service rm <service_id>`
 
-This command will remove the specified service from the Swarm.
+This command will remove the specified service from the Swarm. If the service is running tasks, those tasks will be stopped and removed before the service is removed.
 
 ### Rolling Back a Service
 
-To roll back a service to a previous configuration, you can use the `docker service rollback` command. For example:
+To roll back a service to a previous version, you can use the `docker service rollback` command. For example:
 
-`docker service rollback <service_name> `
+`docker service rollback <service_id> `
 
-This command will roll back the specified service to the previous configuration.
+This command will roll back the specified service to the previous version. It will stop the current tasks, update the service's configuration, and start new tasks with the previous version of the image.
 
 ### Scaling a Service
 
-To scale a service up or down, you can use the `docker service scale` command. For example:
+To scale a service to a specific number of replicas, you can use the `docker service scale` command. For example:
 
-`docker service scale <service_name>=<number_of_replicas> `
+`docker service scale <service_id>=<replicas> `
 
-This command will scale the specified service to the specified number of replicas.
+This command will scale the specified service to the specified number of replicas. It will update the service's configuration and start or stop tasks as needed to reach the desired number of replicas.
 
 ### Updating the Configuration of a Service
 
 To update the configuration of a service, you can use the `docker service update` command. For example:
 
-`docker service update <service_name> <options> `
+`docker service update <service_id> <options> `
 
-This command will update the specified service with the specified options. The options can include changes to the service's image, networks, environment variables, and other settings.
+This command will update the specified service with the specified options. You can use various options to customize the service's behavior, such as setting environment variables, mapping ports, and mounting volumes.
 
 ## Working with Swarm nodes
 
