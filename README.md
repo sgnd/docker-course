@@ -83,38 +83,39 @@ To run an image in a container, you can use the `docker run` command. For exampl
 This command will create a new container from the specified image, and run the specified command in the container.
 
 ## Managing Docker containers
+To manage Docker containers, you can use the following commands:
 
 ### Running a Container
 
-To run a container, you can use the `docker run` command. For example:
+To run a new container, you can use the `docker run` command. For example:
 
-`docker run <image_name> <command> `
+`docker run <image_name> `
 
-This command will create a new container from the specified image, and run the specified command in the container.
+This command will run a new container using the specified image. You can use various options to customize the container's environment, such as setting environment variables, mapping ports, and mounting volumes.
 
 ### Attaching to a Running Container
 
-To attach to a running container, you can use the `docker attach` command. For example:
+To attach to a running container and run commands in it, you can use the `docker exec` command. For example:
 
-`docker attach <container_id> `
+`docker exec -it <container_id> <command>`
 
-This command will attach your terminal to the specified container
+This command will run the specified command in the specified container. The `-i` flag will keep the stdin open, and the `-t` flag will allocate a pseudo-TTY.
 
 ### Copying Files from a Container
 
-To copy files from a container, you can use the `docker cp` command. For example:
+To copy files from a container to the host system, you can use the `docker cp` command. For example:
 
 `docker cp <container_id>:<src_path> <dest_path> `
 
-This command will copy the file at `src_path` in the container to `dest_path` on the host machine.
+This command will copy the file at `src_path` in the container to `dest_path` on the host system.
 
 ### Creating a New Container
 
-To create a new container, you can use the `docker create` command. For example:
+To create a new container without starting it, you can use the `docker create` command. For example:
 
-`docker create <image_name> <command> `
+`docker create <image_name>`
 
-This command will create a new container from the specified image, but it will not start the container. To start the container, you can use the `docker start` command.
+This command will create a new container using the specified image, but it will not start the container. You can use various options to customize the container's environment, such as setting environment variables, mapping ports, and mounting volumes.
 
 ### Viewing Changes to the Filesystem
 
@@ -122,7 +123,7 @@ To view the changes made to the filesystem of a container, you can use the `dock
 
 `docker diff <container_id> `
 
-This command will show the changes made to the container's filesystem since it was created.
+This command will display a list of changes made to the filesystem of the specified container. The changes are indicated by letters: `A` for added files, `C` for modified files, and `D` for deleted files.
 
 ### Inspecting a Container
 
@@ -130,7 +131,7 @@ To view detailed information about a container, you can use the `docker inspect`
 
 `docker inspect <container_id> `
 
-This command will display detailed information about the specified container, including its configuration, state, and resource usage.
+This command will display detailed information about the specified container, including its configuration, state, and network settings.
 
 ### Killing a Container
 
@@ -138,15 +139,15 @@ To stop a running container, you can use the `docker kill` command. For example:
 
 `docker kill <container_id>`
 
-This command will send a SIGKILL signal to the container.
+This command will send a SIGKILL signal to the container, forcing it to stop.
 
 ### Viewing Logs
 
-To view the logs for a container, you can use the `docker logs` command. For example:
+To view the logs of a container, you can use the `docker logs` command. For example:
 
 `docker logs <container_id> `
 
-This command will display the logs for the specified container. By default, it will show the logs for the most recent run of the container. You can use the `--follow` flag to keep the logs open and display new log entries as they are written.
+This command will display the logs of the specified container. By default, it will show the logs for the most recent run of the container. You can use the `--follow` flag to keep the logs open and display new log entries as they are written.
 
 ### Pausing a Container
 
@@ -158,11 +159,11 @@ This command will pause the specified container, which will stop all processes w
 
 ### Viewing Port Mappings
 
-To view the port mappings for a container, you can use the `docker port` command. For example:
+To view the port mappings of a container, you can use the `docker port` command. For example:
 
 `docker port <container_id> `
 
-This command will display the port mappings for the specified container.
+This command will display the port mappings of the specified container. It will show the container's exposed ports and the corresponding host ports.
 
 ### Restarting a Container
 
@@ -170,7 +171,7 @@ To restart a stopped container, you can use the `docker start` command. For exam
 
 `docker start <container_id> `
 
-This command will start the specified container.
+This command will start the specified container. If the container was previously running, it will be restarted.
 
 ### Viewing Processes in a Container
 
@@ -178,15 +179,7 @@ To view the processes running in a container, you can use the `docker top` comma
 
 `docker top <container_id>`
 
-This command will display the processes running in the specified container.
-
-### Stopping a Container
-
-To stop a running container, you can use the `docker stop` command. For example:
-
-`docker stop <container_id> `
-
-This command will stop the specified container. Unlike `docker kill`, which sends a SIGKILL signal to the container, `docker stop` will send a SIGTERM signal to the container, which allows the processes in the container to cleanly shut down. If the processes do not respond to the SIGTERM signal after a timeout period, `docker stop` will send a SIGKILL signal to the container to force it to stop.
+This command will display the processes running in the specified container. It will show the process IDs, command names, and CPU and memory usage.
 
 ## Managing Docker images
 
