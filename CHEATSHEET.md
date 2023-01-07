@@ -1,3 +1,7 @@
+# Docker Cheatsheet for Beginners
+
+This cheatsheet is a beginner-friendly guide to Docker commands, covering the most commonly used commands for running and managing containers, working with images, and networking. It also includes a section on Docker Compose, which is a tool for defining and running multi-container applications. This cheatsheet is designed to help new users get started with Docker and become familiar with the most essential commands in a concise and easy-to-follow format.
+
 ## Running and managing containers
 
 - `docker run <image>`: Run a container from an image
